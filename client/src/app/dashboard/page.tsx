@@ -1,29 +1,47 @@
+"use client"
+
 import React from 'react'
-import DashBoardSideBar from './components/DashBoardSideBar'
-import NotificationBar from './components/NotificationBar'
+import DashBoardNav from './components/DashBoardNav';
+import UserProfileCard from './components/UserProfileCard';
+import PendingActions from './components/PendingActions';
+import RecentDocument from './components/RecentDocument';
+import QuickAccess from './components/QuickAccess';
+import { Meteors } from '@/components/ui/meteors';
+import { ShineBorder } from '@/components/ui/shine-border';
 
 const page = () => {
   return (
-     <main className="h-screen bg-gray-100 flex p-2">
-      {/* Sidebar */}
-      <DashBoardSideBar/>
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-slate-600 text-white relative overflow-x-auto scrollbar-hide ">
+      {/* Falling Meteor Background */}
+      <Meteors />
 
-      {/* Main content wrapper (shifted right by sidebar width) */}
-      <div className="flex flex-col flex-1 ml-64">
-        {/* Fixed-height Notification Bar */}
-        <div className="h-30">
-          <NotificationBar />
-        </div>
+      {/* Header Navigation */}
 
-        {/* Page Content */}
-        <div className="m-3 flex-1 shadow-lg border rounded-lg bg-white p-6 overflow-y-auto">
-          <h1 className="text-2xl font-bold">Dashboard Content</h1>
-          <p className="text-gray-600 mt-2">
-            This is where your main dashboard widgets, charts, or pages will go.
-          </p>
+      <DashBoardNav />
+      {/* Main Dashboard Content */}
+      <main className="relative z-10 max-w-7xl mx-auto px-6 pt-25 pb-8">
+        <div className="gap-8 p-3  ">
+          {/* <ShineBorder
+          shineColor={["#becbd6", ]} 
+          duration={7} 
+          borderWidth={2}
+          /> */}
+          {/* Row 1 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-3 ">
+            <UserProfileCard />
+            <PendingActions />
+          </div>
+          
+
+          {/* Row 2 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-3"> 
+            
+          <RecentDocument />
+          <QuickAccess />
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }
 
