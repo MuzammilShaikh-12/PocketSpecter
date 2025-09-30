@@ -18,7 +18,7 @@ const page = () => {
           </Link>
         ))}
       </nav>
-      <div className="flex text-white justify-center items-center h-screen px-16">
+      <div className="flex text-white justify-center items-center h-screen px-16 gap-4">
         <div className="w-1/2 flex flex-col justify-center items-start">
           <h1 className="text-7xl font-bold mb-4">Pocket Specter</h1>
           <p className="text-lg">
