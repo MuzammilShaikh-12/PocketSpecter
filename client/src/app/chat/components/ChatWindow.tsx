@@ -1,3 +1,5 @@
+"use client";
+
 import { Card } from "@/components/ui/card";
 import React from "react";
 import {
@@ -5,6 +7,11 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar";
+import {
+  userMessageVariants,
+  botMessageVariants,
+} from "@/app/chat/animations/messageMotion";
+import { motion } from "framer-motion";
 
 const messages = [
   {
@@ -24,7 +31,7 @@ const messages = [
   },
   {
     from: "bot",
-    text: "This term means XYZ in the legal context.",
+    text: "This term means XYZ in the legal context with references.",
     time: "11:28",
   },
   {
@@ -41,16 +48,22 @@ const ChatWindow = () => {
         const isUser =
           msg.from === "user";
         return (
-          <div
+          <motion.div
             key={i}
+            variants={
+              isUser
+                ? userMessageVariants
+                : botMessageVariants
+            }
+            initial="hidden"
+            animate="visible"
             className={`flex items-end gap-2 ${
               isUser
                 ? "justify-end"
                 : "justify-start"
             }`}>
-            {/* Bot Avatar (left side) */}
             {!isUser && (
-              <Avatar className="w-8 h-8">
+              <Avatar className="w-8 h-8 relative">
                 <AvatarImage
                   src="/bot.png"
                   alt="Bot"
@@ -61,9 +74,8 @@ const ChatWindow = () => {
               </Avatar>
             )}
 
-            {/* Message Bubble */}
             <Card
-              className={`px-3 py-3 rounded-xl max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl border-none break-words gap-2  ${
+              className={`px-3 py-3 rounded-xl max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl border-none break-words gap-2 ${
                 isUser
                   ? "bg-[#393735] text-[#FFD700] rounded-br-none"
                   : "bg-[#D7D9DC] text-black rounded-bl-none"
@@ -71,12 +83,11 @@ const ChatWindow = () => {
               <p className="text-sm">
                 {msg.text}
               </p>
-              <span className="block text-[10px] text-gray-500 mt-0.5 text-right ">
+              <span className="block text-[10px] text-gray-500 mt-0.5 text-right">
                 {msg.time}
               </span>
             </Card>
 
-            {/* User Avatar (right side) */}
             {isUser && (
               <Avatar className="w-8 h-8">
                 <AvatarImage
@@ -88,7 +99,7 @@ const ChatWindow = () => {
                 </AvatarFallback>
               </Avatar>
             )}
-          </div>
+          </motion.div>
         );
       })}
     </div>

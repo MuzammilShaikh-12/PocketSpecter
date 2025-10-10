@@ -17,13 +17,6 @@ const sampleChats = [
 const SideBar = () => {
   return (
     <div className="space-y-6 bg-white/5 border border-white/10 rounded-2xl shadow-lg p-6">
-      {/* Legal Context */}
-      <div>
-        <h2 className="text-sm font-semibold text-gray-400 mb-2">
-          Legal Context
-        </h2>
-      </div>
-
       {/* Recent Chats */}
       <div>
         <h2 className="text-sm font-semibold text-gray-400 mb-2">
@@ -34,18 +27,18 @@ const SideBar = () => {
             (chat, i) => (
               <Card
                 key={i}
-                className="flex p-3 bg-white/5 backdrop-blur-md border border-white/10 cursor-pointer group">
+                className="flex p-3 bg-white/5 backdrop-blur-md border border-white/10 cursor-pointer group hover:bg-gray-600/50 ">
                 {/* Chat content */}
                 <div className="flex ">
                   <div className="flex-1 min-w-0">
                     <p className="text-sm text-[#feb204] font-medium">
                       {chat.title}
                     </p>
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs pl-2 text-gray-400">
                       {chat.preview}
                     </p>
                   </div>
-                  {/* Options button - hidden until hover */}
+                  {/* Options button */}
                   <Button
                     variant="ghost"
                     size="icon"

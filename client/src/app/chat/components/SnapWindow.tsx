@@ -23,7 +23,7 @@ const SnapWindow = ({
           <Button
             key={i}
             variant="secondary"
-            className="w-full justify-start text-[#feb204] bg-white/5 backdrop-blur-md border border-white/10">
+            className="w-full justify-start text-[#feb204] bg-white/5 backdrop-blur-md border border-white/10 hover:bg-gray-600/50">
             {item}
           </Button>
         ))}

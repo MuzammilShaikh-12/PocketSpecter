@@ -1,26 +1,23 @@
 "use client";
 
 import React from "react";
-import {
-  Bell,
-  Menu,
-  Plus,
-  Scale,
-  Search,
-  Settings,
-} from "lucide-react";
+import { Scale } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 import { usePathname } from "next/navigation";
 import { navConfig } from "@/config/navLinks";
+import { actionButtonConfig } from "@/config/actionButtons";
 
 interface NavbarProps {
   height?: string; // e.g., "h-20" or "h-14"
   maxWidth?: string; // e.g., "max-w-7xl" or "max-w-full"
 }
 
-const Navbar: React.FC<NavbarProps> = ({height, maxWidth}) => {
+const Navbar: React.FC<NavbarProps> = ({
+  height,
+  maxWidth,
+}) => {
   const pathname = usePathname();
 
   // Dynamic navigation items based on route/pathname
@@ -30,24 +27,26 @@ const Navbar: React.FC<NavbarProps> = ({height, maxWidth}) => {
       pathname.startsWith(key) &&
       key !== "default"
     ) {
-      navItems = navItems.concat(navConfig[key]);
+      navItems = navItems.concat(
+        navConfig[key]
+      );
       break;
     }
   }
 
-  const actionIcons = [
-    { icon: Search, label: "Search" },
-    { icon: Plus, label: "Add" },
-    {
-      icon: Bell,
-      label: "Notifications",
-    },
-    {
-      icon: Settings,
-      label: "Settings",
-    },
-    { icon: Menu, label: "Menu" },
-  ];
+  let actionIcons =
+    actionButtonConfig.default;
+  for (const key in actionButtonConfig) {
+    if (
+      pathname.startsWith(key) &&
+      key !== "default"
+    ) {
+      actionIcons = actionIcons.concat(
+        actionButtonConfig[key]
+      );
+      break;
+    }
+  }
 
   return (
     <header
