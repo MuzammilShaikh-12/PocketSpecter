@@ -6,9 +6,12 @@ import config from './config';
 import session from 'express-session';
 import passport from 'passport';
 import './passport';
+import connect from './config/db';
 
 const app = express();
 const logger = pino({ transport: { target: 'pino-pretty' } });
+
+connect();
 
 app.use(cors());
 app.use(
