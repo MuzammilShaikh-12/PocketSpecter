@@ -26,7 +26,9 @@ export const navConfig: Record<string, {
 
    // Chat Links
    "/chat": [
-      
+      {
+         href:"/dashboard", label:"Dashboard",
+      },
    ]
 
 

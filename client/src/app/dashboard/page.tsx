@@ -14,12 +14,12 @@ const Page = () => {
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-slate-600 text-white relative overflow-x-hidden">
       {/* Falling Meteor Background */}
       <Meteors />
-      {
-        /* Shine Border Effect */
-      }
 
       {/* Header Navigation */}
-      <Navbar height="100px" maxWidth="w-4xl" />
+      <Navbar
+        height="100px"
+        maxWidth="w-4xl"
+      />
 
       {/* Main Dashboard Content */}
       <main className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-12">
