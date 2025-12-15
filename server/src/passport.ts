@@ -45,7 +45,11 @@ passport.serializeUser((user: any, done) => {
 
 passport.deserializeUser(async (id: string, done) => {
   try {
-    const user = await User.findById(id).populate('chats').populate('documents');
+    const user = await User.findById(id);
+    // .populate('chats').populate('documents'); for time being keeping it simple
+    if (!user) {
+      done(null, false);
+    }
     done(null, user);
   } catch (error) {
     done(error);
