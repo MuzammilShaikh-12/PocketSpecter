@@ -1,0 +1,3 @@
+[submodule "server/spectre-bot"]
+	path = server/spectre-bot
+	url = https://github.com/aryanshaikh483/Pocket_Specter
