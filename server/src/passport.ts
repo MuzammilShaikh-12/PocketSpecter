@@ -8,7 +8,7 @@ passport.use(
     {
       clientID: config.CLIENT_ID as string,
       clientSecret: config.CLIENT_SECRET as string,
-      callbackURL: 'http://localhost:3000/api/auth/google/callback',
+      callbackURL: `http://localhost:${config.EXPRESS_PORT}/api/auth/google/callback`,
     },
     async (accessToken, refreshToken, profile, done) => {
       //store the user is database or session here

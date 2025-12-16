@@ -37,6 +37,6 @@ app.get('/dashboard', (req, res) => {
   res.json({ user: req.user });
 });
 
-app.listen(config.PORT, () => {
-  logger.info(`Server running at http://localhost:${config.PORT}`);
+app.listen(config.EXPRESS_PORT, () => {
+  logger.info(`Server running at http://localhost:${config.EXPRESS_PORT}`);
 });
