@@ -50,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header
-      className="fixed top-0 left-0 w-full z-20 py-4"
+      className="fixed top-0 left-0 w-full z-20 py-4 pointer-events-none"
       style={{
         height: height || "80px",
       }} // dynamic height
@@ -70,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({
         </div>
 
         {/* Nav */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-8 pointer-events-auto">
           {navItems.map(
             ({ label, href }) => (
               <Link
@@ -84,7 +84,7 @@ const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Actions */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 pointer-events-auto">
           {actionIcons.map(
             ({ icon: Icon, label }) => (
               <Button
