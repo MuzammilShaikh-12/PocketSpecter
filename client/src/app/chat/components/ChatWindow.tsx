@@ -16,6 +16,7 @@ import {
   userMessageVariants,
   botMessageVariants,
 } from "@/app/chat/animations/messageMotion";
+import { MarkdownRenderer } from "@/components/custom/MarkdownRenderer";
 
 interface ChatWindowProps {
   messages: {
@@ -96,9 +97,10 @@ export default function ChatWindow({
                   ? "bg-[#393735] text-[#FFD700] rounded-br-none"
                   : "bg-[#D7D9DC] text-black rounded-bl-none"
               }`}>
-            <p className="text-sm whitespace-pre-wrap">
-              {msg.content}
-            </p>
+              <MarkdownRenderer
+                content={msg.content}
+                variant={msg.role}
+              />
             <span className="block text-[10px] text-gray-500 mt-0.5 text-right">
               {msg.time ?? ""}
             </span>
