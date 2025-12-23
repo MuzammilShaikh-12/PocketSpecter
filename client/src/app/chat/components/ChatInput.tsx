@@ -5,7 +5,6 @@ import React, {
   useState,
 } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Send } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -25,7 +24,7 @@ export default function ChatInput({
   const [isTyping, setIsTyping] =
     useState(false);
 
-  // ✨ Typing accent effect (unchanged)
+  // Typing accent effect (unchanged)
   useEffect(() => {
     if (value.length > 0 && !loading) {
       setIsTyping(true);
@@ -36,6 +35,7 @@ export default function ChatInput({
       return () =>
         clearTimeout(timeout);
     }
+    setIsTyping(false);
   }, [value, loading]);
 
   return (
@@ -46,7 +46,6 @@ export default function ChatInput({
       }}
       className="bg-white/5 border border-white/10 rounded-2xl shadow-lg p-2 flex items-center gap-3 relative transition-all duration-300 ">
       {/* Glow Effect */}
-      {/* TODO: fix the ring light effect after sending message and make the input field scrollable */}
       <div
         className={`absolute inset-0 rounded-2xl transition-all duration-700 pointer-events-none ${
           isTyping
