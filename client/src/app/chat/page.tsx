@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/use-Auth";
 import { useChat } from "@/hooks/use-chat";
+import SpecterLoader from "@/components/custom/SpecterLoader";
 
 export default function ChatRedirect() {
   const router = useRouter();
@@ -54,8 +55,6 @@ export default function ChatRedirect() {
   ]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-900">
-      <div className="h-10 w-10 animate-spin rounded-full border-b-2 border-white" />
-    </div>
+    <SpecterLoader subtitle="Loading chat..." />
   );
 }
